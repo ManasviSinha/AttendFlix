@@ -1,5 +1,5 @@
 import gql from 'graphql-tag';
-
+//query to regoster user and store user data in database
 export const REGISTER_USER = gql`
   mutation register(
     $firstName: String!

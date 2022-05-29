@@ -16,19 +16,26 @@
     }
 }
 
+.headerNavbar{
+    /* display:none; */
+    border-top:3px solid rgb(252, 249, 249);
+    border-bottom:3px solid rgb(252, 249, 249);
 
+    
+}
 
 .headerNavbar__text{
     float: left;
+    
 }
 .headerNavbar__text__item:first-child{
     font-weight: bold;
-    color: #99f;
+    color: rgb(251, 251, 255);
     margin-right: 5px;
 }
 .headerNavbar__text__item:nth-child(2){
     font-weight: bold;
-    color: #fff;
+    color: rgb(241, 18, 18);
     margin-right: 5px;
 }
 .headerNavbar__menu{

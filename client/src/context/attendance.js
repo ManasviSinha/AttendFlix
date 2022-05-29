@@ -19,7 +19,7 @@ function attendanceReducer(state, action) {
       };
 
     case actionTypes.ADD_ATTENDANCE_ACTION:
-      //here we check whether the attendances is not fully loaded, mean the attendance should be included in the fetch
+      //here we check whether the attendances is not fully loaded, meaning the attendance should be included in the fetch
       if (state.initialAccess) {
         return {
           ...state,

@@ -18,7 +18,8 @@ export default () => {
         Log Out
       </Menu.Item>
     </Menu>
-  );
+  ); 
+  //avatar, profile and logout dropdown in navbar 
   return (
     <div className='profileNavbar'>
       <Dropdown

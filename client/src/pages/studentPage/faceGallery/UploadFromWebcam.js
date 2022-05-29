@@ -1,5 +1,6 @@
 import { Button, Card, Form, Col, message, Select } from "antd";
 import React, { useEffect, useRef, useState } from "react";
+//importing webcam to retrieve video frame from webcam
 import Webcam from "react-webcam";
 import { getFullFaceDescription } from "../../../faceUtil";
 import {
@@ -73,9 +74,10 @@ export const UploadFromWebcam = ({
         canvasRef.current.height = videoHeight;
 
         // 4. TODO - Make Detections
-        // e.g. const obj = await net.detect(video);
+        
 
         // Draw mesh
+        //obtaining feature vectors
         getFullFaceDescription(webcamRef.current.getScreenshot(), inputSize)
           .then((data) => {
             setFullDesc(data);
@@ -92,7 +94,7 @@ export const UploadFromWebcam = ({
         drawFaceRect(fullDesc, ctx);
       }
     }
-
+    //loop to update video frame every 0.7 seconds
     let interval = setInterval(() => {
       capture();
     }, 700);
@@ -105,6 +107,7 @@ export const UploadFromWebcam = ({
       update() {
         galleryRefetch();
         countRefetch();
+        //on successful upload to database. Dataset Gallery is updated.
         message.success("Add Face Photo Success!");
       },
       onError(err) {
@@ -156,6 +159,7 @@ export const UploadFromWebcam = ({
           alignItems: "center",
         }}
       >
+      //display video frame
         <Webcam
           muted={true}
           ref={webcamRef}
@@ -168,6 +172,7 @@ export const UploadFromWebcam = ({
           }}
           mirrored
         />
+        //display drawing overlay on webcam display
         <canvas
           ref={canvasRef}
           style={{

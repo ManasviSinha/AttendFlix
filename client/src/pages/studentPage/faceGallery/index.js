@@ -135,30 +135,30 @@ export default () => {
   };
   return (
     <Layout className="layout">
-      <Navbar />
+      <Navbar style={{background:'red'}} />
       <Layout>
         <Greeting />
         <PageTitleBreadcrumb
           titleList={[{ name: "Face Gallery", link: "/facegallery" }]}
         />
 
-        <Content>
-          <Card>
+        <Content >
+          <Card style={{background:'pink'}}>
             <AddFacePhoto
               galleryRefetch={refetch}
               countRefetch={facePhotosCountQuery.refetch}
             />
-            <Card
-              title={
+            <Card style={{background:'pink'}}>
+              {
                 <strong>
                   Your Gallery:{" "}
                   {facePhotosCountQuery.data?.getFacePhotosCount || 0}
                 </strong>
               }
-            >
+            
               {facePhotos.map((photo, index) => (
-                <Card key={photo._id}>
-                  <Card>
+                <Card  style={{background:'lightblue', border:'3px solid white'}} key={photo._id}>
+                  <Card style={{background:'beige'}}>
                     <img
                       height={150}
                       width={120}
@@ -171,7 +171,7 @@ export default () => {
                   </Card>
                   &nbsp;
                   <strong>Face Descriptor: </strong>
-                  <Button onClick={() => handleDescriptorVisible(photo._id)}>
+                  <Button style={{background:'blue',color:'white'}} onClick={() => handleDescriptorVisible(photo._id)}>
                     {!isDescriptorVisible[photo._id] ? "Show" : "Hide"}
                   </Button>
                   {isDescriptorVisible[photo._id] && (
@@ -192,7 +192,7 @@ export default () => {
                       alignItems: "flex-end",
                     }}
                   >
-                    <p>Uploaded at: {moment(photo.createdAt).format("LLL")}</p>
+                    {/* <p>Uploaded at: {moment(photo.createdAt).format("LLL")}</p> */}
                   </div>
                   <div
                     style={{

@@ -32,7 +32,7 @@ const { Content } = Layout;
 export default (props) => {
   const columns = [
     {
-      title: <strong>Avatar</strong>,
+      title: <strong style={{color:'purple'}}>Avatar</strong>,
       dataIndex: "profilePictureURL",
       key: "profilePictureURL",
       render: (imgURL, record) => (
@@ -42,7 +42,7 @@ export default (props) => {
           style={{
             backgroundColor: `rgb(${Math.random() * 150 + 30}, ${
               Math.random() * 150 + 30
-            }, ${Math.random() * 150 + 30})`,
+            }, ${Math.random() * 150 + 30})`, border:'1px solid black'
           }}
         >
           {record.displayedName[0]}
@@ -51,21 +51,21 @@ export default (props) => {
       align: "center",
     },
     {
-      title: <strong>Matric Number</strong>,
+      title: <strong style={{color:'purple'}}>Matric Number</strong>,
       dataIndex: "cardID",
       key: "cardID",
       align: "center",
       sorter: (a, b) => a.cardID.localeCompare(b.cardID),
     },
     {
-      title: <strong>Name</strong>,
+      title: <strong style={{color:'purple'}}>Name</strong>,
       dataIndex: "displayedName",
       key: "displayedName",
       align: "center",
-      sorter: (a, b) => a.displayedName.localeCompare(b.displayedName),
+      // sorter: (a, b) => a.displayedName.localeCompare(b.displayedName),
     },
     {
-      title: <strong>Action</strong>,
+      title: <strong style={{color:'purple'}}>Action</strong>,
       key: "action",
       render: (index) => (
         <Space size="middle">
@@ -186,9 +186,9 @@ export default (props) => {
   };
 
   return (
-    <Layout className="courseDetails layout">
+    <Layout className="courseDetails layout" >
       <Navbar />
-      <Layout>
+      <Layout style={{background:'lightblue'}}>
         <Greeting
           firstName={user.firstName}
           profilePicture={user.profilePicture}

@@ -41,6 +41,7 @@ export default (props) => {
   const [absentees, setAbsentees] = useState([]);
   const [course, setCourse] = useState({});
 
+  //fetching face dataset of all the participants in the course from the server
   const { data, loading, error } = useQuery(
     FETCH_FACE_MATCHER_IN_COURSE_QUERY,
     {

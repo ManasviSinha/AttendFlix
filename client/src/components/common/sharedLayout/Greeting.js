@@ -5,8 +5,7 @@ import {
 } from '@ant-design/icons';
 import { useQuery } from '@apollo/react-hooks';
 import { Button, Layout, Typography, Badge, Avatar } from 'antd';
-import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext, useState } from 'react'
 import { AuthContext, NotificationContext } from '../../../context';
 import { CheckError } from '../../../utils/ErrorHandling';
 import { FETCH_UNCHECKED_NOTIFICATIONS_QUERY } from '../../../graphql/query';
@@ -40,6 +39,7 @@ export default () => {
     },
   });
 
+  //setting greeting according to time
   const greetMode = () => {
     let h = new Date().getHours();
     if (h >= 0 && h < 12) return 'Morning';
@@ -49,7 +49,7 @@ export default () => {
 
   return (
     <Header className='greeting__header'>
-      <Title className='greeting__title' level={4}>
+      <Title className='greeting__title' level={4} >
         <div className='siderNavbar__collapse'>
           <Button
             icon={<UnorderedListOutlined />}
@@ -80,19 +80,6 @@ export default () => {
         <div className='greeting__profileNavbar'>
           <ProfileNavbar />
         </div>
-        <Link
-          to='/notification'
-          title={`Notification (${uncheckedNotificationCount})`}
-        >
-          <div className='greeting__notification'>
-            <Badge count={uncheckedNotificationCount}>
-              <Avatar
-                icon={<BellOutlined />}
-                style={{ backgroundColor: 'orange' }}
-              />
-            </Badge>
-          </div>
-        </Link>
       </Title>
     </Header>
   );

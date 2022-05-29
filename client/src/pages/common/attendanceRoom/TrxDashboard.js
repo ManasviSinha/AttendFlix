@@ -68,7 +68,7 @@ export default (props) => {
     <Row>
      
       <Col span={12}>
-        <Card>
+        <Card style={{background:'#FF7F7F', border:'2px solid white'}}>
           <>
             <p
               style={{
@@ -87,7 +87,7 @@ export default (props) => {
         </Card>
       </Col>
       <Col span={12}>
-        <Card>
+        <Card >
           <>
             <p
               style={{

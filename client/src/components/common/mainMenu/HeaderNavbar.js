@@ -10,23 +10,25 @@ export default () => {
   const pathname =
     window.location.pathname; /* e.g: pathname="/signin" or "/" or "/signup" */
   const path = pathname.substr(1); //skip '/' character
+    //navbar on top of page
   return (
     <div className='headerNavbar'>
+  
       <Header>
         <Link to='/'>
           <div className='headerNavbar__logo'>
             <Avatar
-              shape="square"
+              shape="circle"
               className='avatar'
               size='large'
-              alt='Attendlytics'
+              alt='AttendFlix'
               src={APP_LOGO_URL.link}
               onError={(err) => {
                 console.log(err);
               }}
             />
             <div className='headerNavbar__text'>
-              <span className='headerNavbar__text__item'>Attendlytical</span>
+              <span className='headerNavbar__text__item'>Attendflix</span>
             </div>
           </div>
         </Link>

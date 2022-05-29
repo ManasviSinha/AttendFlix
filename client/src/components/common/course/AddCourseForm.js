@@ -14,6 +14,7 @@ export default ({ refetchTableTotal, refetchTable }) => {
   const { addCourse } = useContext(CourseContext);
   const { onSubmit, onChange, values } = useForm(submitCallback);
 
+  //to send course details to server to store in database
   const [addCourseCallback, { loading }] = useMutation(ADD_COURSE_MUTATION, {
     update() {
       message.success("Create course successfully.");
@@ -33,7 +34,7 @@ export default ({ refetchTableTotal, refetchTable }) => {
   function submitCallback() {
     addCourseCallback();
   }
-
+//form for adding course by lecturer
   return (
     <Content>
       <Card title="Add Course Form" className="addCourse__card">

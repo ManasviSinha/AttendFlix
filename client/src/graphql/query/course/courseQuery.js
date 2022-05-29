@@ -1,6 +1,6 @@
 import gql from 'graphql-tag';
 
-
+//query for retrieving data regarding course count,course query,participants in course
 export const FETCH_COURSES_COUNT_QUERY = gql`
   query getCoursesCount {
     getCoursesCount

@@ -7,6 +7,7 @@ import { CheckError } from "../../../utils/ErrorHandling";
 
 export default () => {
   const [courseID, setCourseID] = useState('');
+  //to store information regarding courses enrolled by a student, sneding information to server
   const [enrolCourseCallback, enrolCourseStatus] = useMutation(
     ENROL_COURSE_MUTATION,
     {
@@ -21,11 +22,12 @@ export default () => {
       variables: { id: courseID },
     }
   );
+  //form on Courses page in student version to enroll for a course
   return (
-    <div>
-      <p className='alert'>🢃 Enter Course ID for new enrolment</p>
+    <div style={{background:'pink', borderRadius:'10px'}}>
+      <p  className='alert'> 🢃 Enter Course ID for new enrolment</p>
 
-      <Form style={{ display: 'flex' }} onFinish={() => enrolCourseCallback()}>
+      <Form  style={{ display: 'flex'}} onFinish={() => enrolCourseCallback()}>
         <Form.Item
           label='Course ID'
           name='courseID'

@@ -1,5 +1,5 @@
 import gql from 'graphql-tag';
-
+//query to edit user profile in database
 export const EDIT_PROFILE_MUTATION = gql`
   mutation editProfile(
     $firstName: String!

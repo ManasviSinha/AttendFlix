@@ -7,9 +7,10 @@ export default ({ course }) => {
   const { user } = useContext(AuthContext);
 
   return (
-    <Row className='courseDetails__row'>
-      <Col>
-        <Card className='courseDetails__info'>
+    <Row className='courseDetails__row' >
+      <Col style={{background:'pink', color:'purple'}} >
+      <div style={{background:'blue', borderRadius:'10px'}}>
+        <Card className='courseDetails__info' style={{color:'purple'}}>
           <p className='courseDetails__shortID'>ID: {course.shortID}</p>
           <p>
             <strong>Code:</strong> {course.code}
@@ -37,6 +38,7 @@ export default ({ course }) => {
             Attendance List
           </Link>
         </Card>
+        </div>
       </Col>
     </Row>
   );

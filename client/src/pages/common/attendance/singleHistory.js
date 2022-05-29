@@ -31,6 +31,7 @@ import moment from "moment";
 const { Title } = Typography;
 const { Content } = Layout;
 
+//attendance report for a single day with information about check in date,time matric number
 export default (props) => {
   const columns = [
     {
@@ -215,9 +216,9 @@ export default (props) => {
   };
 
   return (
-    <Layout className="layout">
+    <Layout className="layout" >
       <Navbar />
-      <Layout>
+      <Layout style={{background:'', border:'2px solid white'}}>
         <Greeting />
         <PageTitleBreadcrumb
           titleList={[
@@ -237,7 +238,7 @@ export default (props) => {
           ]}
         />
         <Content>
-          <Card>
+          <Card style={{background:'beige', border:'2px solid white'}}>
             <Space direction="vertical" className="width100">
               {attendanceGQLQuery.data && (
                 <Card>
@@ -268,7 +269,7 @@ export default (props) => {
               <Card style={{ display: "flex", justifyContent: "center" }}>
                 {" "}
                 <p>
-                  <strong>Attendance Transaction:</strong> {stats || "-"}
+                  <strong>Attendance:</strong> {stats || "-"}
                 </p>
                 <br />
               </Card>
@@ -290,6 +291,7 @@ export default (props) => {
                 Refresh Table
               </Button>
               <Table
+              
                 scroll={{ x: "max-content" }}
                 loading={courseAndParticipantsGQLQuery.loading}
                 pagination={{ pageSize: 5 }}

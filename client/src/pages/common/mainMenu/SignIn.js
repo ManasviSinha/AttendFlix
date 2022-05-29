@@ -20,6 +20,7 @@ import { LOGIN_GOOGLE_USER, LOGIN_USER } from '../../../graphql/mutation';
 import { useForm } from '../../../utils/hooks';
 const { Content } = Layout;
 
+//sign in page on welcome page of website
 export default (props) => {
   const context = useContext(AuthContext);
   const { onChange, onSubmit, values } = useForm(loginUserCallback, {
@@ -76,6 +77,7 @@ export default (props) => {
 
       <Content
         style={{
+          background:"pink",
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
@@ -84,9 +86,15 @@ export default (props) => {
       >
         <Card
           style={{
+            background: 'beige',
             display: 'flex',
             alignItems: 'center',
+            borderRadius: "40px",
+            height:'250px',
+            width:'600px',
             justifyContent: 'center',
+            border:'2px solid white'
+            
           }}
         >
           <Form
@@ -126,24 +134,26 @@ export default (props) => {
             <Form.Item>
               <Button
                 type='primary'
-                htmlType='submit'
+               htmlType='submit'
                 loading={loading}
                 disabled={pressedGoogleLogin || loginGoogleUserStatus.loading}
+                style={{margin:'0px 200px', height:'50px', width:'120px', fontSize:'20px'}}
               >
                 Submit
               </Button>
             </Form.Item>
           </Form>
         </Card>
-        <Divider />
-        <Space>
+        {/* <Divider /> */}
+        <Space style={{padding:"30px"}}>
           <GoogleLogin
             clientId={GOOGLE_CLIENT_ID}
-            buttonText='Continue With Google'
+            buttonText='Sign In With Google'
             onSuccess={handleGoogleResponse}
             onFailure={(error) => {
               setPressedGoogleLogin(false);
               console.error(error);
+              
             }}
             cookiePolicy={'single_host_origin'}
             onRequest={() => setPressedGoogleLogin(true)}
@@ -153,7 +163,7 @@ export default (props) => {
         {loginGoogleUserStatus.loading && (
           <Space>
             <Divider />
-              Redirecting, please wait...
+              Redirecting...
             <LoadingOutlined />
           </Space>
         )}

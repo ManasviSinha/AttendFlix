@@ -5,7 +5,7 @@ export async function loadModels(
   setLoadingMessageError
 ) {
   const MODEL_URL = process.env.PUBLIC_URL + '/models';
-
+//loading face models for face detection,finding face landmark points and feature extraction
   try {
     setLoadingMessage('Loading Face Detector');
     await faceapi.loadSsdMobilenetv1Model(MODEL_URL);
@@ -17,13 +17,13 @@ export async function loadModels(
     await faceapi.loadFaceRecognitionModel(MODEL_URL);
   } catch (err) {
     setLoadingMessageError(
-      'Model loading failed. Please contact me about the bug:attendlytical@gmail.com'
+      'Model loading failed.'
     );
   }
 }
-
+//function to transform image source to 128 feature vectors
 export async function getFullFaceDescription(blob, inputSize = 512) {
-  // tiny_face_detector options
+  // swtting score threshold to determine between positive and negative class
   let scoreThreshold = 0.8;
   const OPTION = new faceapi.SsdMobilenetv1Options({
     inputSize,
@@ -31,7 +31,7 @@ export async function getFullFaceDescription(blob, inputSize = 512) {
   });
   const useTinyModel = true;
 
-  // fetch image to api
+  // fetch image to api by passing image data
   let img = await faceapi.fetchImage(blob);
 
   // detect all faces and generate full description from image
@@ -50,6 +50,7 @@ export async function createMatcher(faceProfile, maxDescriptorDistance) {
       new faceapi.LabeledFaceDescriptors(
         profile.student._id,
         profile.facePhotos.map(
+          //parsing string feature descriptor to Float32Array and finding best match using Euclidean algorithm
           (photo) => new Float32Array(photo.faceDescriptor.match(/-?\d+(?:\.\d+)?/g).map(Number))
         )
       )
@@ -63,7 +64,7 @@ export async function createMatcher(faceProfile, maxDescriptorDistance) {
 
   return faceMatcher;
 }
-
+//checking whether models have loaded or not
 export function isFaceDetectionModelLoaded() {
   return !!faceapi.nets.ssdMobilenetv1.params;
 }

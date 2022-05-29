@@ -46,6 +46,7 @@ export default (props) => {
   const { user } = useContext(AuthContext);
   const [attendanceList, setAttendanceList] = useState([]);
 
+  //attendance record of a student in a particular course for each day in attendance list
   const columns = [
     {
       title: <strong>Bil</strong>,
@@ -67,7 +68,7 @@ export default (props) => {
           {text}
         </Skeleton>
       ),
-      sorter: (a, b) => a.mode.localeCompare(b.mode),
+      
     },
     {
       key: "date",
@@ -79,7 +80,7 @@ export default (props) => {
           {text}
         </Skeleton>
       ),
-      sorter: (a, b) => a.date.localeCompare(b.date),
+      
     },
     {
       key: "time",
@@ -91,7 +92,7 @@ export default (props) => {
           {text}
         </Skeleton>
       ),
-      sorter: (a, b) => a.time.localeCompare(b.time),
+    
     },
     {
       key: "mode",
@@ -103,7 +104,6 @@ export default (props) => {
           {text}
         </Skeleton>
       ),
-      sorter: (a, b) => a.mode.localeCompare(b.mode),
     },
     {
       title: <strong>Open</strong>,
@@ -115,7 +115,7 @@ export default (props) => {
         </Tag>
       ),
       align: "center",
-      sorter: (a, b) => a.open.localeCompare(b.open),
+     
     },
     {
       title: <strong>{"Action"}</strong>,
@@ -300,9 +300,9 @@ export default (props) => {
   };
 
   return (
-    <Layout className="layout">
-      <Navbar />
-      <Layout>
+    <Layout className="layout"  >
+      <Navbar/>
+      <Layout style={{background:''}}>
         <Greeting />
         <PageTitleBreadcrumb
           titleList={[
@@ -317,8 +317,8 @@ export default (props) => {
             },
           ]}
         />
-        <Content>
-          <Card>
+        <Content >
+          <Card style={{background:'lightblue'}}>
             <Space direction="vertical" className="width100">
               {data && (
                 <Title level={4}>

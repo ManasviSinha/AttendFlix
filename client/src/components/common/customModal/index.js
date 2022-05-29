@@ -39,6 +39,7 @@ export default ({
             {payload.course?.session})
           </>
         );
+        
       case modalItems.facePhoto.name:
         return (
           <>
@@ -63,6 +64,7 @@ export default ({
         </div>
         );
       case modalItems.attendance.name:
+        //display attendance record of student
         return (
           <>
             <p>

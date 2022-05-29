@@ -11,7 +11,7 @@ const { Sider } = Layout;
 export default () => {
   const { user } = useContext(AuthContext);
   const { collapsed, toggleCollapsed } = useContext(NavbarContext);
-
+//collapsible sidenavbar
   return (
     <>
       <Sider

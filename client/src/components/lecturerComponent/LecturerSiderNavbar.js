@@ -9,6 +9,7 @@ import { APP_LOGO_URL } from '../../assets';
 export default () => {
   const { collapsed } = useContext(NavbarContext);
 
+  //collapsible sidebar/drawer of lecturer version
   return (
     <div className='lecturerSiderNavbar'>
       <Link to='/dashboard'>

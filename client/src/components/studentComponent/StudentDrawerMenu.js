@@ -16,7 +16,7 @@ export default ({ isCollapseMenuOpen, setIsCollapseMenuOpen }) => {
 
   const { enrolCount, getEnrolCount } = useContext(EnrolmentContext);
 
-
+//collapsible sidebar/drawer in student version
   return (
     <Drawer
       title='Menu'
@@ -27,7 +27,7 @@ export default ({ isCollapseMenuOpen, setIsCollapseMenuOpen }) => {
         setIsCollapseMenuOpen(false);
       }}
     >
-      <p>
+      <p >
         <Link to={'/dashboard'}>
           <HomeOutlined />
           &nbsp; Home

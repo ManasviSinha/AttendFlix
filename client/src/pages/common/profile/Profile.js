@@ -15,6 +15,8 @@ import './Profile.css';
 
 const { Content } = Layout;
 
+//profile of user with option to edit profile details
+
 export default () => {
   const { user, avatarColor, editProfile } = useContext(AuthContext);
 

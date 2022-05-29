@@ -5,7 +5,7 @@
 }
 
 .greeting__header{
-    background: #fff !important;
+    background: pink !important;
 }
 
 .greeting__title{
@@ -23,7 +23,7 @@
 .greeting__notificationCount{
     line-height: 0px;
     background-color: red;
-    color: white;
+    color: rgb(26, 24, 24);
     min-width: 15px;
     padding: 10px;
     height: 15px;

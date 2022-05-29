@@ -9,7 +9,7 @@ import { APP_LOGO_URL } from '../../assets';
 export default () => {
   const { collapsed } = useContext(NavbarContext);
   return (
-    <div className='studentSiderNavbar'>
+    <div className='studentSiderNavbar' >
       <Link to='/dashboard'>
         <div className='studentSiderNavbar__logo'>
           <Avatar
@@ -31,7 +31,7 @@ export default () => {
             }
           >
             <span className='studentSiderNavbar__text__item'>Student</span>
-            <span className='studentSiderNavbar__text__item'>Version</span>
+            {/* <span className='studentSiderNavbar__text__item'>Version</span> */}
           </div>
         </div>
       </Link>

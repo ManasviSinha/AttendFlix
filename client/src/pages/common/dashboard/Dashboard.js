@@ -31,6 +31,7 @@ import "./Dashboard.css";
 
 const { Content } = Layout;
 
+//student dashboard in courses showing enrolled courses and course details
 export default (props) => {
   const { user } = useContext(AuthContext);
   const titleList = [{ name: "Home", link: "/dashboard" }];
@@ -61,7 +62,7 @@ export default (props) => {
           {text}
         </Skeleton>
       ),
-      sorter: (a, b) => a.code.localeCompare(b.date),
+      
     },
     {
       title: <strong>Code</strong>,
@@ -74,7 +75,7 @@ export default (props) => {
           {text}
         </Skeleton>
       ),
-      sorter: (a, b) => a.code.localeCompare(b.date),
+      
     },
     {
       title: <strong>Name</strong>,
@@ -86,7 +87,7 @@ export default (props) => {
         </Skeleton>
       ),
       align: "center",
-      sorter: (a, b) => a.name.localeCompare(b.date),
+     
     },
     {
       title: <strong>Session</strong>,
@@ -98,7 +99,7 @@ export default (props) => {
         </Skeleton>
       ),
       align: "center",
-      sorter: (a, b) => a.name.localeCompare(b.date),
+   
     },
     {
       title: <strong>Owner</strong>,
@@ -110,7 +111,7 @@ export default (props) => {
         </Skeleton>
       ),
       align: "center",
-      sorter: (a, b) => a.name.localeCompare(b.date),
+     
     },
     {
       title: <strong>Action</strong>,
@@ -294,15 +295,15 @@ export default (props) => {
   };
 
   return (
-    <Layout className="dashboard layout">
+    <Layout  className="dashboard layout">
       <Navbar />
       <Layout>
         <Greeting />
         <PageTitleBreadcrumb titleList={titleList} />
-        <Card>
+        <Card  style={{background:'pink'}}>
           {user.userLevel == 0 && <EnrolCourseInput />}
           {user.userLevel == 1 && (
-            <AddCourseForm
+            <AddCourseForm 
               refetchTableTotal={totalCoursesQuery.refetch}
               refetchTable={refetch}
             />
@@ -314,7 +315,7 @@ export default (props) => {
               {totalCoursesQuery.data?.getCoursesCount || 0}
             </h1>
             <Button
-              style={{ float: "right" }}
+              style={{ float: "right", background:'beige' }}
               icon={<RedoOutlined />}
               disabled={loading}
               loading={loading}
@@ -323,6 +324,7 @@ export default (props) => {
               Refresh Table
             </Button>
             <Table
+              style={{background:'pink'}}
               scroll={{ x: "max-content" }}
               loading={loading}
               pagination={tablePagination}

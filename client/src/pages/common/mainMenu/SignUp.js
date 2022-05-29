@@ -17,6 +17,7 @@ import { GOOGLE_CLIENT_ID } from "../../../config";
 
 const { Content } = Layout;
 
+//sign up page on welcome page of website
 export default (props) => {
   const context = useContext(AuthContext);
 
@@ -74,15 +75,16 @@ export default (props) => {
   }
 
   return (
-    <Layout className='signin layout'>
+    <Layout className='signin layout' >
       <HeaderNavbar />
 
-      <Content style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column' }}>
-        <Card style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+      <Content style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', backgroundColor:'pink' }}>
+        <Card style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' ,background:'beige', borderRadius:"30px", margin:'20px'}}>
           <Form
             name='basic'
             initialValues={{ remember: true }}
             onFinish={onSubmit}
+            
           >
             <br />
             <Form.Item
@@ -222,15 +224,15 @@ export default (props) => {
             <Divider />
 
             <Form.Item>
-              <Button type='primary' htmlType='submit' loading={loading} disabled={pressedGoogleLogin || loginGoogleUserStatus.loading}>
+              <Button style={{margin:'0px 200px', height:'50px', width:'120px', fontSize:'20px'}}type='primary' htmlType='submit' loading={loading} disabled={pressedGoogleLogin || loginGoogleUserStatus.loading}>
                 Submit
               </Button>
             </Form.Item>
           </Form>
         </Card>
 
-        <Divider />
-        <Space>
+        {/* <Divider /> */}
+        <Space style={{padding:'20px'}}>
           <GoogleLogin
             clientId={GOOGLE_CLIENT_ID}
             buttonText='Continue With Google'
@@ -249,7 +251,7 @@ export default (props) => {
           <Space>
             <Divider />
 
-            Redirecting, please wait...
+            Redirecting...
             <LoadingOutlined />
           </Space>
         )}

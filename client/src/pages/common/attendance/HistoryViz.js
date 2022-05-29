@@ -12,7 +12,7 @@ export default ({ attendeesLength, absenteesLength }) => {
     width: window.innerWidth,
     height: window.innerHeight,
   });
-  const PIECOLORS = ["#00C49F", "#ee8888"];
+  const PIECOLORS = ["green", "red"];
 
   const onPieEnter = (data, index) => {
     setActiveIndex(index);
@@ -23,6 +23,8 @@ export default ({ attendeesLength, absenteesLength }) => {
       setPieSize({ width: window.innerWidth, height: window.innerHeight });
     });
   }, []);
+  
+  //piechart to demonstrate stats of attendance with no. of attendees,absentees
 
   useEffect(() => {
     setData([

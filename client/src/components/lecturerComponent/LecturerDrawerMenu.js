@@ -15,7 +15,7 @@ export default ({ isCollapseMenuOpen, setIsCollapseMenuOpen }) => {
 
   const { enrolCount, getEnrolCount } = useContext(EnrolmentContext);
 
-
+ //collapsible courses part sidebar/drawer in lecturer version
   return (
     <Drawer
       title='Menu'

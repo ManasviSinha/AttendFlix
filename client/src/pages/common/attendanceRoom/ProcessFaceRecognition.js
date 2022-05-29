@@ -45,6 +45,7 @@ export default (props) => {
   const [fullDesc, setFullDesc] = useState(null);
   const [waitText, setWaitText] = useState("");
 
+
   const [ createTrxCallback ] = useMutation(
     CREATE_TRX_MUTATION,
     {
@@ -57,6 +58,7 @@ export default (props) => {
     }
   );
 
+  //loading models for face detection,landmark detection and feature extraction
   useEffect(() => {
     async function loadingtheModel() {
       await loadModels(setLoadingMessage, setLoadingMessageError);
@@ -97,9 +99,10 @@ export default (props) => {
         canvasRef.current.height = videoHeight;
 
         // 4. TODO - Make Detections
-        // e.g. const obj = await net.detect(video);
+        
 
         // Draw mesh
+        //transforming face into 128 feature vectors
         getFullFaceDescription(webcamRef.current.getScreenshot(), inputSize)
           .then((data) => {
             setFullDesc(data);
@@ -111,15 +114,18 @@ export default (props) => {
             );
           });
         const ctx = canvasRef.current.getContext("2d");
-
+          //passing feature vectorx
         drawRectAndLabelFace(fullDesc, faceMatcher, participants, ctx);
 
         if (!!fullDesc) {
           console.log("Now got full desc");
           fullDesc.map((desc) => {
+            //best match of face
             const bestMatch = faceMatcher.findBestMatch(desc.descriptor);
             console.log(bestMatch);
+            //if detected label is not unknown
             if (bestMatch._label != "unknown") {
+              //storing transaction into the database
               createTrxCallback({
                 variables: {
                   attendanceID: props.match.params.attendanceID,
@@ -155,8 +161,8 @@ export default (props) => {
 
   return (
     <Content>
-      <Card>
-        <Form>
+      <Card style={{background:'lightblue'}}>
+        <Form style={{background:'lightblue'}}> 
           <Form.Item label="Webcam">
             <Select
               defaultValue="Select Webcam"
@@ -172,6 +178,7 @@ export default (props) => {
           </Form.Item>
           <Form.Item label="Webcam Size">
             <Select
+            
               defaultValue={DEFAULT_WEBCAM_RESOLUTION.label}
               style={{ width: 200 }}
               onChange={handleWebcamResolution}
@@ -204,7 +211,7 @@ export default (props) => {
         )}
 
         {isAllModelLoaded && loadingMessageError.length == 0 && (
-          <Card className="takeAttendance__card__webcam">
+          <Card className="takeAttendance__card__webcam" style={{background:'beige'}}>
             <>
               <p>{waitText}</p>
               <div
@@ -215,6 +222,7 @@ export default (props) => {
                 }}
               >
                 <Webcam
+                style={{border:'3px solid white'}}
                   muted={true}
                   ref={webcamRef}
                   audio={false}

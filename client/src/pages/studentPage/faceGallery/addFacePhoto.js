@@ -26,6 +26,7 @@ export default ({ galleryRefetch, countRefetch }) => {
   const [loadingMessage, setLoadingMessage] = useState("");
   const [loadingMessageError, setLoadingMessageError] = useState("");
 
+  //passing query to useMutation function for submitting photo data to server
   const [addFacePhotoCallback, { loading }] = useMutation(
     ADD_FACE_PHOTO_MUTATION,
     {
@@ -56,8 +57,8 @@ export default ({ galleryRefetch, countRefetch }) => {
   }, [isAllModelLoaded]);
 
   return (
-    <Card>
-      <Card title="Model Load">
+    <Card style={{background:'beige'}}>
+      <Card title="Model Load" style={{background:'#b3e8f7'}} >
         <ModelLoadStatus errorMessage={loadingMessageError} />
       </Card>
       <br />

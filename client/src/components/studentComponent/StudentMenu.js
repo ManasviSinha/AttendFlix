@@ -18,15 +18,16 @@ export default () => {
 
   const { collapsed } = useContext(NavbarContext);
 
+  //collapsed sidebar/drawer in student version
   return (
     <Menu theme='dark' mode='vertical' defaultSelectedKeys={[path]}>
-      <Menu.Item key={'dashboard'} icon={<HomeOutlined />}>
+      <Menu.Item key={'dashboard'} icon={<HomeOutlined />} >
         <Link to={'/dashboard'}>Courses</Link>
       </Menu.Item>
       <Menu.Item key={'facegallery'} icon={<PictureOutlined />}>
         <Link to={'/facegallery'}>Face Gallery</Link>
       </Menu.Item>
-      {!collapsed && <FpsView width={190} height={100} top={525} />}
+      {/* {!collapsed && <FpsView width={190} height={100} top={525} />} */}
     </Menu>
   );
 };

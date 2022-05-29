@@ -1,5 +1,5 @@
 import gql from 'graphql-tag';
-
+//query for fetching the dataset
 export const FETCH_FACE_PHOTOS_COUNT_QUERY = gql`
   query getFacePhotosCount {
     getFacePhotosCount

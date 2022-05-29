@@ -1,5 +1,5 @@
 import gql from 'graphql-tag';
-
+//query to create attendance
 export const CREATE_ATTENDANCE_MUTATION = gql`
   mutation createAttendance(
     $courseID: String!
